@@ -1,24 +1,20 @@
+import Image from "next/image";
+import artistImg from "@/app/assets/pics/image10.jpeg";
+
 export default function About() {
   return (
     <section id="about" className="py-28 px-6 border-t border-[#1a1a1a]">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-        {/* Image placeholder — replace src with actual artist photo */}
+        {/* Artist photo */}
         <div className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 w-full overflow-hidden">
-          <div
-            className="w-full h-full bg-[#111] flex items-end p-6"
-            style={{
-              backgroundImage: `
-                radial-gradient(ellipse at 30% 20%, rgba(196,146,42,0.15) 0%, transparent 60%)
-              `,
-            }}
-          >
-            {/* Swap this div for <Image src="/images/artist.jpg" ... /> when you have a photo */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-[family-name:var(--font-bebas)] text-[#1e1e1e] text-6xl tracking-widest select-none">
-                PHOTO
-              </span>
-            </div>
-            <div className="relative z-10 border-l-2 border-[#C4922A] pl-4">
+          <Image
+            src={artistImg}
+            alt="Sali Clinton"
+            fill
+            className="object-cover object-center"
+          />
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#080808]/80 to-transparent">
+            <div className="border-l-2 border-[#C4922A] pl-4">
               <p className="font-[family-name:var(--font-bebas)] text-3xl text-white leading-tight">
                 SALI CLINTON
               </p>

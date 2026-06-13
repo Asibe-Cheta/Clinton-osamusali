@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
+import heroImg from "@/app/assets/pics/image2.jpeg";
 
 export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -19,14 +21,21 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-end overflow-hidden">
-      {/* Background gradient — replace with actual artist photo via CSS background-image */}
+      {/* Artist photo */}
+      <Image
+        src={heroImg}
+        alt="Sali Clinton"
+        fill
+        className="object-cover object-top"
+        priority
+      />
+
+      {/* Dark overlay — heavier at top and bottom, lighter in middle to let the photo breathe */}
       <div
-        className="absolute inset-0 bg-[#080808]"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `
-            radial-gradient(ellipse at 70% 40%, rgba(196,146,42,0.12) 0%, transparent 60%),
-            radial-gradient(ellipse at 20% 80%, rgba(196,146,42,0.06) 0%, transparent 50%)
-          `,
+          background:
+            "linear-gradient(to bottom, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.2) 40%, rgba(8,8,8,0.7) 75%, rgba(8,8,8,1) 100%)",
         }}
       />
 
