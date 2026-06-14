@@ -84,7 +84,7 @@ const releases = [
     featured: true,
   },
   {
-    title: "Previous Single",
+    title: "Listen To More From Sali Clinton",
     type: "Single",
     description: "More music from Sali Clinton",
     coverGradient: "from-[#0a0a18] to-[#080808]",
