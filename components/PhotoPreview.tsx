@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import photo1 from "@/app/assets/pics/image5.jpeg";
 import photo2 from "@/app/assets/pics/image0.jpeg";
