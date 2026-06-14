@@ -4,7 +4,7 @@ import Image from "next/image";
 const streamingPlatforms = [
   {
     name: "Spotify",
-    href: "#", // Replace with actual Spotify link
+    href: "https://open.spotify.com/artist/00En2dMv2w5Q2tx35SpJI8?si=9GvwaFf-QjaFFnWWFJ5QWg",
     color: "#1DB954",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -14,7 +14,7 @@ const streamingPlatforms = [
   },
   {
     name: "Apple Music",
-    href: "#", // Replace with actual Apple Music link
+    href: "https://music.apple.com/gb/artist/sali-clinton/1534100068",
     color: "#FA2D48",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -24,7 +24,7 @@ const streamingPlatforms = [
   },
   {
     name: "YouTube",
-    href: "#", // Replace with actual YouTube link
+    href: "https://youtube.com/@saliclinton?si=8oLOz1uA8lgilaED",
     color: "#FF0000",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -33,28 +33,28 @@ const streamingPlatforms = [
     ),
   },
   {
-    name: "SoundCloud",
-    href: "#", // Replace with actual SoundCloud link
-    color: "#FF5500",
+    name: "Audiomack",
+    href: "https://audiomack.com/saliclinton",
+    color: "#FF6600",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-        <path d="M1.175 12.225c-.042 0-.08.01-.12.025L.529 13.33l.526 1.096c.04.016.078.025.12.025.314 0 .568-.254.568-.568v-.089c0-.314-.254-.569-.568-.569zm-.899.828l-.276-.588-.276.588.276.277.276-.277zm2.19-.262h-.21v1.568h.21v-1.568zm3.372 0h-.21v1.568h.21v-1.568zM24 11.39c0-2.39-1.96-4.31-4.36-4.31-.38 0-.74.05-1.09.14C17.69 4.94 15.39 3 12.67 3c-1.9 0-3.6.82-4.77 2.12-.08-.01-.15-.01-.23-.01-2.29 0-4.14 1.85-4.14 4.12 0 .14.01.28.03.41C1.57 9.99 0 11.88 0 14.1c0 2.39 1.96 4.31 4.36 4.31h15.28C22.04 18.41 24 16.49 24 14.1c0-.97-.31-1.87-.83-2.6l-.17-.11z" />
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 3c.552 0 1 .448 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L11 14.586V6a1 1 0 0 1 1-1z"/>
       </svg>
     ),
   },
   {
-    name: "Deezer",
-    href: "#", // Replace with actual Deezer link
-    color: "#A238FF",
+    name: "Tidal",
+    href: "https://tidal.com/artist/21570984/u",
+    color: "#00FFFF",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-        <path d="M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.027h5.189V8.38H6.27zm12.54 0v3.027H24V8.38h-5.19zm-6.27 4.22v3.027h5.19v-3.027h-5.19zm-6.27 0v3.027h5.19v-3.027H6.27zM0 12.6v3.027h5.19V12.6H0zm18.81 0v3.027H24V12.6h-5.19zm-6.27 4.22v3.027h5.19v-3.027h-5.19zm-6.27 0v3.027h5.19v-3.027H6.27zM0 16.82v3.027h5.19V16.82H0z"/>
+        <path d="M12.012 3.992L8.008 7.996l4.004 4.004 4.004-4.004-4.004-4.004zM8.008 7.996L4.004 12l4.004 4.004L12.012 12 8.008 7.996zM16.016 7.996L12.012 12l4.004 4.004L20.02 12l-4.004-4.004zM8.008 12L4.004 16.004l4.004 4.004 4.004-4.004L8.008 12zM16.016 12l-4.004 4.004 4.004 4.004 4.004-4.004L16.016 12z"/>
       </svg>
     ),
   },
   {
     name: "Amazon Music",
-    href: "#", // Replace with actual Amazon Music link
+    href: "https://music.amazon.co.uk/artists/B08KHC3YCT/sali-clinton?marketplaceId=A1F83G8C2ARO7P&musicTerritory=GB&ref=dm_sh_sVv7j8bhU8H5G3L7m0TYsKzD8",
     color: "#00A8E1",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
