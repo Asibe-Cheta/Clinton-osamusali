@@ -3,12 +3,7 @@
   "short_name": "Sali Clinton",
   "icons": [
     {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/icons/apple-touch-icon.png",
+      "src": "/brand/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
     }

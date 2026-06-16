@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   icons: {
     icon: [
-      { url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icons/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/brand/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/favicon-16.png", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: "/icons/favicon-32.png",
-    apple: "/icons/apple-touch-icon.png",
+    shortcut: "/brand/favicon.png",
+    apple: "/brand/apple-touch-icon.png",
   },
   openGraph: {
     title: "Sali Clinton | Official Website",
@@ -44,11 +44,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
-      <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
-        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-      </head>
       <body className="antialiased">{children}</body>
     </html>
   );
