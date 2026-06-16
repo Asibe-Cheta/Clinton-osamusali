@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
+import listenMoreCover from "@/app/assets/pics/b6b19138c061003aec4e8d2f0c462a9b.jpg";
 
 const streamingPlatforms = [
   {
@@ -64,7 +66,7 @@ const streamingPlatforms = [
   },
   {
     name: "Soundbridge",
-    href: "#", // Replace with actual Soundbridge link
+    href: "https://www.soundbridge.io/",
     color: "transparent",
     icon: (
       <Image src="/soundbridge-icon.png" alt="Soundbridge" width={16} height={16} className="rounded-sm" />
@@ -72,39 +74,73 @@ const streamingPlatforms = [
   },
 ];
 
-const releases = [
-  {
-    title: "Latest Release",
-    type: "Single",
-    // Replace placeholder with: description of the song
-    description: "Stream the latest single from Sali Clinton",
-    // Replace with actual artwork: /images/release-1.jpg
-    coverGradient: "from-[#1a1204] to-[#080808]",
-    accentFrom: "rgba(196,146,42,0.3)",
-    featured: true,
-  },
+type PlatformLink = {
+  name: string;
+  href: string;
+  color: string;
+  icon: React.ReactElement;
+};
+
+type Release = {
+  title: string;
+  type: string;
+  description: string;
+  coverGradient?: string;
+  accentFrom?: string;
+  coverImage?: StaticImageData;
+  featured: boolean;
+  links?: PlatformLink[];
+};
+
+const featuredRelease: Release = {
+  title: "Latest Release",
+  type: "Single",
+  description: "Stream the latest single from Sali Clinton",
+  coverGradient: "from-[#1a1204] to-[#080808]",
+  accentFrom: "rgba(196,146,42,0.3)",
+  featured: true,
+};
+
+const moreReleases: Release[] = [
   {
     title: "Listen To More From Sali Clinton",
-    type: "Single",
-    description: "More music from Sali Clinton",
-    coverGradient: "from-[#0a0a18] to-[#080808]",
-    accentFrom: "rgba(80,60,180,0.2)",
+    type: "Discography",
+    description: "Explore the full catalogue — singles, live sessions, and more.",
+    coverImage: listenMoreCover,
     featured: false,
   },
   {
-    title: "Collaboration",
-    type: "Feature",
-    description: "Featured artist appearance",
+    title: "Flaws",
+    type: "Featured Collaboration",
+    description: "2023 psychological drama on Amazon Prime Video, featuring Sali Clinton.",
     coverGradient: "from-[#180a0a] to-[#080808]",
     accentFrom: "rgba(180,40,40,0.2)",
     featured: false,
+    links: [
+      {
+        name: "Amazon Prime Video",
+        href: "https://www.primevideo.com/detail/0MMR30ROYFCVKL1JSGXH1ZBPVT",
+        color: "#00A8E1",
+        icon: (
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+            <path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.074-1.047-.872-1.234-1.275-1.814-2.107-1.734 1.767-2.962 2.297-5.209 2.297-2.66 0-4.731-1.641-4.731-4.925 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.095v-.41c0-.753.06-1.642-.384-2.294-.385-.578-1.124-.818-1.778-.818-1.209 0-2.286.62-2.548 1.907-.054.285-.261.566-.549.579l-3.061-.33c-.259-.057-.548-.266-.472-.66C5.865 1.807 8.905.25 12.002.25c1.582 0 3.647.421 4.894 1.622 1.586 1.48 1.434 3.458 1.434 5.609v5.074c0 1.527.634 2.198 1.228 3.023.21.293.254.643-.009.861l-2.405 2.356zM21.499 19.498c-2.096 1.603-5.12 2.499-7.737 2.499-3.663 0-6.963-1.354-9.461-3.604-.195-.175-.019-.415.215-.276 2.695 1.569 6.028 2.513 9.468 2.513 2.314 0 4.863-.479 7.208-1.47.351-.152.651.229.307.338z"/>
+          </svg>
+        ),
+      },
+    ],
   },
 ];
 
-function StreamingLinks({ compact = false }: { compact?: boolean }) {
+function StreamingLinks({
+  compact = false,
+  platforms = streamingPlatforms,
+}: {
+  compact?: boolean;
+  platforms?: PlatformLink[];
+}) {
   return (
     <div className={`flex flex-wrap gap-2 ${compact ? "" : "mt-6"}`}>
-      {streamingPlatforms.map((platform) => (
+      {platforms.map((platform) => (
         <Link
           key={platform.name}
           href={platform.href}
@@ -125,9 +161,35 @@ function StreamingLinks({ compact = false }: { compact?: boolean }) {
   );
 }
 
-export default function Music() {
-  const [featured, ...rest] = releases;
+function ReleaseCover({ release }: { release: Release }) {
+  if (release.coverImage) {
+    return (
+      <div className="relative aspect-square overflow-hidden mb-4">
+        <Image
+          src={release.coverImage}
+          alt={release.title}
+          fill
+          className="object-cover"
+        />
+      </div>
+    );
+  }
 
+  return (
+    <div
+      className={`relative aspect-square bg-gradient-to-br ${release.coverGradient} flex items-center justify-center overflow-hidden mb-4`}
+      style={{
+        backgroundImage: `radial-gradient(ellipse at 30% 30%, ${release.accentFrom} 0%, transparent 60%)`,
+      }}
+    >
+      <span className="font-[family-name:var(--font-bebas)] text-[#1a1a1a] text-2xl tracking-widest select-none">
+        COVER ART
+      </span>
+    </div>
+  );
+}
+
+export default function Music() {
   return (
     <section id="music" className="py-28 px-6 border-t border-[#1a1a1a]">
       <div className="max-w-7xl mx-auto">
@@ -145,13 +207,12 @@ export default function Music() {
         {/* Featured release */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           <div
-            className={`relative aspect-square bg-gradient-to-br ${featured.coverGradient} flex items-center justify-center overflow-hidden`}
+            className={`relative aspect-square bg-gradient-to-br ${featuredRelease.coverGradient} flex items-center justify-center overflow-hidden`}
             style={{
-              backgroundImage: `radial-gradient(ellipse at 30% 30%, ${featured.accentFrom} 0%, transparent 60%)`,
+              backgroundImage: `radial-gradient(ellipse at 30% 30%, ${featuredRelease.accentFrom} 0%, transparent 60%)`,
               backgroundBlendMode: "normal",
             }}
           >
-            {/* Replace with <Image src="/images/featured-cover.jpg" fill alt="..." className="object-cover" /> */}
             <span className="font-[family-name:var(--font-bebas)] text-[#1e1e1e] text-5xl tracking-widest select-none">
               COVER ART
             </span>
@@ -162,13 +223,13 @@ export default function Music() {
 
           <div className="flex flex-col justify-center">
             <span className="font-[family-name:var(--font-inter)] text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C4922A] mb-3">
-              {featured.type}
+              {featuredRelease.type}
             </span>
             <h3 className="font-[family-name:var(--font-bebas)] text-6xl lg:text-8xl text-white leading-none mb-4">
-              {featured.title}
+              {featuredRelease.title}
             </h3>
             <p className="font-[family-name:var(--font-inter)] text-sm text-[#777] leading-relaxed max-w-md">
-              {featured.description}
+              {featuredRelease.description}
             </p>
             <StreamingLinks />
           </div>
@@ -177,29 +238,25 @@ export default function Music() {
         {/* More releases */}
         <div>
           <p className="font-[family-name:var(--font-inter)] text-xs font-semibold uppercase tracking-[0.3em] text-[#444] mb-6">
-            More Music
+            More
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {rest.map((release, i) => (
-              <div key={i} className="group">
-                <div
-                  className={`relative aspect-square bg-gradient-to-br ${release.coverGradient} flex items-center justify-center overflow-hidden mb-4`}
-                  style={{
-                    backgroundImage: `radial-gradient(ellipse at 30% 30%, ${release.accentFrom} 0%, transparent 60%)`,
-                  }}
-                >
-                  {/* Replace with actual cover art */}
-                  <span className="font-[family-name:var(--font-bebas)] text-[#1a1a1a] text-2xl tracking-widest select-none">
-                    COVER ART
-                  </span>
-                </div>
+          <div className="grid sm:grid-cols-2 gap-8">
+            {moreReleases.map((release) => (
+              <div key={release.title} className="group">
+                <ReleaseCover release={release} />
                 <span className="font-[family-name:var(--font-inter)] text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C4922A]">
                   {release.type}
                 </span>
                 <h3 className="font-[family-name:var(--font-bebas)] text-3xl text-white mt-1 mb-3">
                   {release.title}
                 </h3>
-                <StreamingLinks compact />
+                <p className="font-[family-name:var(--font-inter)] text-sm text-[#666] leading-relaxed mb-3">
+                  {release.description}
+                </p>
+                <StreamingLinks
+                  compact
+                  platforms={release.links ?? streamingPlatforms}
+                />
               </div>
             ))}
           </div>

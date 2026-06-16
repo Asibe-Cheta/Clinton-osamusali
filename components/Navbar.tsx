@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import logoImg from "@/app/assets/pics/logo.jpg";
 
 const navLinks = [
   { label: "Music", href: "#music" },
   { label: "About", href: "#about" },
   { label: "Videos", href: "#videos" },
+  { label: "Press", href: "#press" },
   { label: "Shows", href: "#shows" },
   { label: "Gallery", href: "#gallery" },
 ];
@@ -35,12 +38,19 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-        <Link
-          href="/"
-          className="font-[family-name:var(--font-bebas)] text-2xl tracking-widest text-white hover:text-[#C4922A] transition-colors"
-        >
-          SALI CLINTON
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
+          <Image
+            src={logoImg}
+            alt="Sali Clinton"
+            width={44}
+            height={44}
+            className="object-contain"
+            priority
+          />
+          <span className="hidden sm:block font-[family-name:var(--font-bebas)] text-2xl tracking-widest text-white">
+            SALI CLINTON
+          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -78,7 +88,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 bg-[#080808]/98 ${
-          menuOpen ? "max-h-64 border-b border-[#1a1a1a]" : "max-h-0"
+          menuOpen ? "max-h-80 border-b border-[#1a1a1a]" : "max-h-0"
         }`}
       >
         <ul className="px-6 py-4 flex flex-col gap-5">

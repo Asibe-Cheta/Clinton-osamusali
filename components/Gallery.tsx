@@ -3,45 +3,79 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import img0 from "@/app/assets/pics/image0.jpeg";
-import img0b from "@/app/assets/pics/image0-2.jpeg";
 import img1 from "@/app/assets/pics/image1.jpeg";
-import img1b from "@/app/assets/pics/image1-2.jpeg";
 import img2 from "@/app/assets/pics/image2.jpeg";
 import img4 from "@/app/assets/pics/image4.jpeg";
 import img5 from "@/app/assets/pics/image5.jpeg";
-import img5b from "@/app/assets/pics/image5-2.jpeg";
 import img7 from "@/app/assets/pics/image7.jpeg";
-import img7b from "@/app/assets/pics/image7-2.jpeg";
 import img8 from "@/app/assets/pics/image8.jpeg";
-import img8b from "@/app/assets/pics/image8-2.jpeg";
 import img9 from "@/app/assets/pics/image9.jpeg";
-import img9b from "@/app/assets/pics/image9-2.jpeg";
 import img10 from "@/app/assets/pics/image10.jpeg";
 import img11 from "@/app/assets/pics/image11.jpeg";
 import imgA from "@/app/assets/pics/3d0de24251b05712d4442a7f99f57e3a.jpg";
-import imgB from "@/app/assets/pics/b6b19138c061003aec4e8d2f0c462a9b.jpg";
 import imgC from "@/app/assets/pics/fa74e0ec08e96925298cee5da027c71a.jpg";
 
 const photos = [
-  { src: img5, alt: "Editorial shoot" },
-  { src: img2, alt: "Studio portrait" },
-  { src: imgA, alt: "Studio session" },
-  { src: img0, alt: "Live performance" },
-  { src: img10, alt: "Artist portrait" },
-  { src: img9, alt: "Formal portrait" },
-  { src: img1, alt: "Live performance" },
-  { src: img4, alt: "Artist portrait" },
-  { src: imgC, alt: "Studio shoot" },
-  { src: img5b, alt: "Editorial" },
-  { src: img11, alt: "Studio session" },
-  { src: img8, alt: "Artist photo" },
-  { src: img0b, alt: "Performance" },
-  { src: img1b, alt: "Performance" },
-  { src: img7, alt: "Artist photo" },
-  { src: img9b, alt: "Portrait" },
-  { src: img7b, alt: "Artist photo" },
-  { src: img8b, alt: "Artist photo" },
-  { src: imgB, alt: "Studio session" },
+  {
+    src: img5,
+    alt: "Editorial shoot",
+    description: "Editorial portrait — warm tones, natural light.",
+  },
+  {
+    src: img2,
+    alt: "Studio portrait",
+    description: "Studio session, Northampton.",
+  },
+  {
+    src: imgA,
+    alt: "Studio session",
+    description: "Behind the scenes in the studio.",
+  },
+  {
+    src: img0,
+    alt: "Live performance",
+    description: "Live performance — bass and vocals.",
+  },
+  {
+    src: img10,
+    alt: "Artist portrait",
+    description: "Artist portrait, contemporary styling.",
+  },
+  {
+    src: img9,
+    alt: "Formal portrait",
+    description: "Formal portrait shoot.",
+  },
+  {
+    src: img1,
+    alt: "Live performance",
+    description: "On stage — live session.",
+  },
+  {
+    src: img4,
+    alt: "Artist portrait",
+    description: "Candid artist moment.",
+  },
+  {
+    src: imgC,
+    alt: "Studio shoot",
+    description: "Studio photography — creative direction.",
+  },
+  {
+    src: img11,
+    alt: "Studio session",
+    description: "Recording session in the booth.",
+  },
+  {
+    src: img8,
+    alt: "Artist photo",
+    description: "Artist photo — Lagos · London.",
+  },
+  {
+    src: img7,
+    alt: "Artist photo",
+    description: "Portrait — Afro-fusion artist.",
+  },
 ];
 
 export default function Gallery() {
@@ -85,12 +119,11 @@ export default function Gallery() {
             </h2>
           </div>
 
-          {/* Masonry grid */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 lg:gap-4">
             {photos.map((photo, i) => (
               <div
                 key={i}
-                className="break-inside-avoid mb-3 lg:mb-4 group relative cursor-pointer overflow-hidden"
+                className="break-inside-avoid mb-3 lg:mb-4 group relative cursor-pointer overflow-hidden bg-[#0a0a0a]"
                 onClick={() => setSelected(i)}
               >
                 <Image
@@ -105,31 +138,42 @@ export default function Gallery() {
                     </svg>
                   </div>
                 </div>
+                <div className="px-3 py-3 border-t border-[#1a1a1a]">
+                  <p className="font-[family-name:var(--font-inter)] text-xs text-[#888] leading-relaxed">
+                    {photo.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Lightbox */}
       {selected !== null && (
         <div
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
+          className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center"
           onClick={close}
         >
-          {/* Image */}
           <div
-            className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center"
+            className="relative max-w-[90vw] max-h-[75vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={photos[selected].src}
               alt={photos[selected].alt}
-              className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain"
+              className="max-w-[90vw] max-h-[75vh] w-auto h-auto object-contain"
             />
           </div>
 
-          {/* Close */}
+          <div
+            className="mt-4 max-w-lg px-6 text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className="font-[family-name:var(--font-inter)] text-sm text-[#aaa] leading-relaxed">
+              {photos[selected].description}
+            </p>
+          </div>
+
           <button
             onClick={close}
             className="absolute top-6 right-6 w-10 h-10 border border-white/30 flex items-center justify-center text-white hover:border-[#C4922A] hover:text-[#C4922A] transition-colors"
@@ -139,7 +183,6 @@ export default function Gallery() {
             </svg>
           </button>
 
-          {/* Prev */}
           <button
             onClick={(e) => { e.stopPropagation(); prev(); }}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/30 flex items-center justify-center text-white hover:border-[#C4922A] hover:text-[#C4922A] transition-colors"
@@ -149,7 +192,6 @@ export default function Gallery() {
             </svg>
           </button>
 
-          {/* Next */}
           <button
             onClick={(e) => { e.stopPropagation(); next(); }}
             className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/30 flex items-center justify-center text-white hover:border-[#C4922A] hover:text-[#C4922A] transition-colors"
@@ -159,7 +201,6 @@ export default function Gallery() {
             </svg>
           </button>
 
-          {/* Counter */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 font-[family-name:var(--font-inter)] text-[11px] text-white/40 uppercase tracking-widest">
             {selected + 1} / {photos.length}
           </div>
