@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   description:
     "Official website of Sali Clinton — Recording Artist, Songwriter, and Bassist. Afrobeats, R&B, Pop, and contemporary African music.",
   keywords: ["Sali Clinton", "Clinton Osamusali", "Nigerian musician", "Afrobeats", "R&B", "UK artist"],
+  icons: {
+    icon: [
+      { url: "/logo.jpg", type: "image/jpeg", sizes: "500x500" },
+    ],
+    shortcut: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
   openGraph: {
     title: "Sali Clinton | Official Website",
     description:
