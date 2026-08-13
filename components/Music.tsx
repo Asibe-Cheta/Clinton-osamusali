@@ -92,8 +92,10 @@ type Release = {
   links?: PlatformLink[];
 };
 
+const featuredReleaseLink = "https://linktr.ee/saliclinton_mydarling";
+
 const featuredRelease: Release = {
-  title: "Latest Release",
+  title: "Fall In Love",
   type: "Single",
   description: "Stream the latest single from Sali Clinton",
   coverGradient: "from-[#1a1204] to-[#080808]",
@@ -231,6 +233,14 @@ export default function Music() {
             <p className="font-[family-name:var(--font-inter)] text-sm text-[#777] leading-relaxed max-w-md">
               {featuredRelease.description}
             </p>
+            <Link
+              href={featuredReleaseLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-6 bg-[#C4922A] text-black px-6 py-3 font-[family-name:var(--font-inter)] text-xs font-bold uppercase tracking-[0.2em] w-fit hover:bg-[#d9a536] transition-colors"
+            >
+              Stream Now
+            </Link>
             <StreamingLinks />
           </div>
         </div>

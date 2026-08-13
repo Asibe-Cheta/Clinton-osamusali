@@ -38,8 +38,9 @@ export default function About() {
 
           <div className="space-y-5 text-[#aaa] font-[family-name:var(--font-inter)] text-sm leading-7">
             <p>
-              Sali Clinton is a Nigerian-born recording artist, songwriter, bassist, and creative
-              collaborator based in the United Kingdom. His music blends influences from Afrobeats,
+              Clinton Ikechukwu Osamusali, professionally known as Sali Clinton, is a Nigerian-born
+              recording artist, songwriter, bassist, and creative collaborator based in the United
+              Kingdom. His music blends influences from Afrobeats,
               R&B, Pop, Gospel, and contemporary African sounds, creating songs that are both
               emotionally resonant and culturally rich.
             </p>

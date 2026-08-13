@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import img0 from "@/app/assets/pics/image0.jpeg";
-import img1 from "@/app/assets/pics/image1.jpeg";
+import img0 from "@/app/assets/pics/image0-cropped.jpeg";
+import img1 from "@/app/assets/pics/image1-cropped.jpeg";
 import img2 from "@/app/assets/pics/image2.jpeg";
 import img4 from "@/app/assets/pics/image4.jpeg";
 import img5 from "@/app/assets/pics/image5.jpeg";

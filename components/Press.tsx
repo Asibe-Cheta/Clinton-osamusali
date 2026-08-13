@@ -2,6 +2,22 @@ import Link from "next/link";
 
 const pressArticles = [
   {
+    outlet: "Forbes Liberia",
+    title: "Sali Clinton and the Other Side of the Afrobeats Boom",
+    excerpt:
+      "While Afrobeats has become a global streaming phenomenon, the financial rewards concentrate among a small number of established artists. Nigerian-born, UK-based independent musician Sali Clinton represents the larger population of diaspora artists creating meaningful work outside the label system.",
+    href: "https://forbesliberia.com/article?slug=sali-clinton-and-the-other-side-of-the-afrobeats-boom",
+    year: "2026",
+  },
+  {
+    outlet: "THISDAY Live",
+    title: "Sali Clinton and the Quiet Power of Staying Independent",
+    excerpt:
+      "Coverage of Sali Clinton's latest single, Fall In Love, and how his commitment to creative independence has allowed him to maintain artistic authenticity while building his career without major label backing.",
+    href: "https://www.thisdaylive.com/2026/07/05/sali-clinton-and-the-quiet-power-of-staying-independent/",
+    year: "2026",
+  },
+  {
     outlet: "Music-News.com",
     title:
       "Sali Clinton's My Darling: A masterclass in restrained and stubbornly authentic Afro-fusion",
