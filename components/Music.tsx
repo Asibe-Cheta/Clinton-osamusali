@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
 import listenMoreCover from "@/app/assets/pics/b6b19138c061003aec4e8d2f0c462a9b.jpg";
+import fallInLoveCover from "@/app/assets/pics/cov-1.png";
 
 const streamingPlatforms = [
   {
@@ -100,6 +101,7 @@ const featuredRelease: Release = {
   description: "Stream the latest single from Sali Clinton",
   coverGradient: "from-[#1a1204] to-[#080808]",
   accentFrom: "rgba(196,146,42,0.3)",
+  coverImage: fallInLoveCover,
   featured: true,
 };
 
@@ -208,16 +210,14 @@ export default function Music() {
 
         {/* Featured release */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <div
-            className={`relative aspect-square bg-gradient-to-br ${featuredRelease.coverGradient} flex items-center justify-center overflow-hidden`}
-            style={{
-              backgroundImage: `radial-gradient(ellipse at 30% 30%, ${featuredRelease.accentFrom} 0%, transparent 60%)`,
-              backgroundBlendMode: "normal",
-            }}
-          >
-            <span className="font-[family-name:var(--font-bebas)] text-[#1e1e1e] text-5xl tracking-widest select-none">
-              COVER ART
-            </span>
+          <div className="relative aspect-square overflow-hidden">
+            <Image
+              src={featuredRelease.coverImage!}
+              alt={featuredRelease.title}
+              fill
+              className="object-cover"
+              priority
+            />
             <div className="absolute top-4 left-4 bg-[#C4922A] text-black px-3 py-1 font-[family-name:var(--font-inter)] text-[9px] font-bold uppercase tracking-widest">
               Latest
             </div>
